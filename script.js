@@ -22,4 +22,35 @@ function toggleAcc(button) {
   }
 }
 
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.forEach(navLink => navLink.classList.remove("active"));
+    link.classList.add("active");
+  });
+});
+
+document.querySelector('.nav-link[href="#inicio"]')?.classList.add("active");
+
+// const animatedElements = document.querySelectorAll(
+//   ".profile-photo, [href*='drive.google.com'], #experiencia > div, #proyectos .animate-scroll > div, #skills span"
+// );
+
+animatedElements.forEach((element, index) => {
+  element.classList.add("reveal-on-scroll");
+  element.style.transitionDelay = `${Math.min(index * 70, 420)}ms`;
+});
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+animatedElements.forEach(element => revealObserver.observe(element));
+
 // okok
