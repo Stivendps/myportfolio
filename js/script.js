@@ -33,9 +33,6 @@ navLinks.forEach(link => {
 
 document.querySelector('.nav-link[href="#inicio"]')?.classList.add("active");
 
-// const animatedElements = document.querySelectorAll(
-//   ".profile-photo, [href*='drive.google.com'], #experiencia > div, #proyectos .animate-scroll > div, #skills span"
-// );
 
 animatedElements.forEach((element, index) => {
   element.classList.add("reveal-on-scroll");
