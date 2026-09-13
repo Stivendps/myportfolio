@@ -1,0 +1,144 @@
+/* Custom styles */
+:root {
+	--bg-900: #051F20;
+	--bg-800: #082B26;
+	--bg-700: #163832;
+	--bg-600: #235347;
+	--olive: #BEB69B;
+	--mist: #DAF1DE;
+	--text: #EEF5EE;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.profile-photo {
+	-webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%);
+	animation: photo-float 6s ease-in-out infinite;
+	transition: filter 400ms ease, transform 400ms ease;
+}
+
+.nav-link.active {
+	background-color: var(--olive);
+	color: var(--bg-900);
+}
+
+header a:not(.nav-link),
+#redes a {
+	transition: color 250ms ease, transform 250ms ease, filter 250ms ease;
+}
+
+header a:not(.nav-link):hover,
+#redes a:hover {
+	transform: translateY(-3px) scale(1.08);
+	filter: drop-shadow(0 5px 8px rgb(190 182 155 / 25%));
+}
+
+.nav-link {
+	position: relative;
+	transition: color 250ms ease, background-color 250ms ease, transform 250ms ease;
+}
+
+.nav-link::after {
+	content: "";
+	position: absolute;
+	left: 0.75rem;
+	right: 0.75rem;
+	bottom: 0.1rem;
+	height: 2px;
+	background: var(--olive);
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 250ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+	transform: translateY(-2px);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+	transform: scaleX(1);
+}
+
+.reveal-on-scroll {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.reveal-on-scroll.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#experiencia>div,
+#proyectos .animate-scroll>div,
+#skills span {
+	transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+#experiencia>div:hover,
+#proyectos .animate-scroll>div:hover,
+#skills span:hover {
+	transform: translateY(-5px);
+	border-color: var(--olive);
+	box-shadow: 0 10px 22px rgb(5 31 32 / 35%);
+}
+
+[href*="drive.google.com"] {
+	transition: color 250ms ease, background-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+
+[href*="drive.google.com"]:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 18px rgb(190 182 155 / 22%);
+}
+
+@keyframes photo-float {
+	0%,
+	100% {
+		transform: translateY(-0.875rem);
+	}
+
+	50% {
+		transform: translateY(-1.25rem);
+	}
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+
+	50% {
+		transform: translateX(-50%);
+	}
+}
+
+.animate-scroll {
+	animation: scroll 18s linear infinite;
+	animation-play-state: running;
+}
+
+.animate-scroll:hover {
+	animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+
+	.reveal-on-scroll {
+		opacity: 1;
+		transform: none;
+	}
+}
