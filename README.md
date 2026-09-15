@@ -9,8 +9,9 @@ continuo, aprendiendo cada dia en soluciones tecnológicas limpias e innovadoras
 
 html - tailwind - javascript
 
-## Links de maquetacion
+## Links 
 * Figma: https://www.figma.com/design/4Z8ePHiMaIw2ZB1T9N1Rp5/Sin-t%C3%ADtulo?node-id=2-2&p=f&t=sJ4OwZ9q2JCcmRGQ-0
+* deploy: https://stivendps.github.io/myportfolio/
 
 
 
